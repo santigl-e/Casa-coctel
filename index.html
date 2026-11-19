@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Coctel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="luz luz-1"></div>
+  <div class="luz luz-2"></div>
+
+  <header class="hero">
+    <span class="sello">Carta de licores</span>
+    <h1>Casa <em>Coctel</em></h1>
+    <p>Toca una botella y descubre qué se puede preparar con ella</p>
+  </header>
+
+  <main>
+    <section id="estante" class="estante" aria-label="Botellas disponibles"></section>
+
+    <section class="detalle">
+      <div class="vitrina"><div id="grande" class="grande"></div></div>
+
+      <div class="info">
+        <h2 id="nombre"></h2>
+        <p id="descripcion" class="descripcion"></p>
+
+        <div class="dato">
+          <span class="etiqueta">🔥 Fuerza alcohólica</span>
+          <strong id="grados"></strong>
+          <div class="barra-fondo"><div id="barra" class="barra"></div></div>
+        </div>
+
+        <div class="dato">
+          <span class="etiqueta">🌎 Región de origen</span>
+          <strong id="origen"></strong>
+        </div>
+
+        <div class="dato">
+          <span class="etiqueta">🥃 Cómo se suele servir</span>
+          <strong id="servir"></strong>
+        </div>
+      </div>
+    </section>
+
+    <h3 class="titulo-cocteles"><span>Cócteles clásicos</span></h3>
+    <section id="cocteles" class="cocteles"></section>
+  </main>
+
+  <footer>
+    Consumo responsable: el exceso de alcohol es perjudicial para la salud.
+    Solo para mayores de edad.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

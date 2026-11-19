@@ -1,0 +1,99 @@
+:root {
+  --fondo: #0b1f1a;
+  --panel: #12302a;
+  --panel-2: #194038;
+  --texto: #f4efe6;
+  --suave: #b8c9c2;
+  --dorado: #e6b450;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #15382f, var(--fondo) 60%);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 1.2rem 1rem 2rem;
+}
+
+header { text-align: center; margin-bottom: 1.4rem; }
+header h1 { font-size: 2.2rem; letter-spacing: .06em; color: var(--dorado); }
+header p { color: var(--suave); margin-top: .3rem; }
+
+main { max-width: 900px; margin: 0 auto; }
+
+/* Estante de botellas */
+.estante {
+  display: flex;
+  gap: .6rem;
+  overflow-x: auto;
+  padding: .5rem .2rem 1rem;
+  scroll-snap-type: x proximity;
+}
+.botella {
+  flex: 0 0 auto;
+  width: 84px;
+  background: var(--panel);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: .5rem .3rem;
+  color: var(--texto);
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.botella svg { width: 100%; height: 90px; }
+.botella:hover { transform: translateY(-3px); }
+.botella.activa { border-color: var(--dorado); background: var(--panel-2); }
+
+/* Tarjeta de detalle */
+.detalle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 1.4rem;
+}
+.grande { display: flex; justify-content: center; }
+.grande svg { height: 220px; }
+.info h2 { font-size: 1.8rem; color: var(--dorado); }
+.descripcion { color: var(--suave); margin: .3rem 0 1rem; }
+
+.dato {
+  background: var(--panel-2);
+  border-radius: 14px;
+  padding: .8rem 1rem;
+  margin-bottom: .6rem;
+}
+.etiqueta { display: block; font-size: .8rem; color: var(--suave); margin-bottom: .2rem; }
+.barra-fondo { height: 10px; background: #0b1f1a; border-radius: 999px; margin-top: .5rem; overflow: hidden; }
+.barra { height: 100%; width: 0; background: linear-gradient(90deg, #7bd88f, var(--dorado), #e2574c); border-radius: 999px; transition: width .6s ease; }
+
+/* Cócteles */
+.titulo-cocteles { margin: 1.5rem 0 .8rem; font-size: 1.3rem; }
+.cocteles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; }
+.coctel {
+  background: var(--panel);
+  border-left: 4px solid var(--dorado);
+  border-radius: 12px;
+  padding: .9rem 1rem;
+  opacity: 0;
+  animation: aparecer .4s ease forwards;
+}
+.coctel h4 { color: var(--dorado); margin-bottom: .3rem; }
+.coctel p { font-size: .9rem; color: var(--suave); }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer { text-align: center; color: var(--suave); font-size: .85rem; margin-top: 2rem; }
+
+@media (min-width: 700px) {
+  .detalle { grid-template-columns: 200px 1fr; align-items: center; }
+}
